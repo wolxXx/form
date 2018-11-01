@@ -2,24 +2,27 @@
 
 namespace AdamWathan\Form\Elements;
 
+/**
+ * Class DateTimeLocal
+ *
+ * @package AdamWathan\Form\Elements
+ */
 class DateTimeLocal extends Text
 {
+    /**
+     * @var array
+     */
     protected $attributes = [
         'type' => 'datetime-local',
     ];
 
-    public function value($value)
-    {
-        if ($value instanceof \DateTime) {
-            $value = $value->format('Y-m-d\TH:i');
-        }
 
-        return parent::value($value);
-    }
-
+    /**
+     * @inheritdoc
+     */
     public function defaultValue($value)
     {
-        if (! $this->hasValue()) {
+        if (false === $this->hasValue()) {
             if ($value instanceof \DateTime) {
                 $value = $value->format('Y-m-d\TH:i');
             }
@@ -27,5 +30,18 @@ class DateTimeLocal extends Text
         }
 
         return $this;
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function value($value)
+    {
+        if ($value instanceof \DateTime) {
+            $value = $value->format('Y-m-d\TH:i');
+        }
+
+        return parent::value($value);
     }
 }

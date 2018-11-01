@@ -2,24 +2,27 @@
 
 namespace AdamWathan\Form\Elements;
 
+/**
+ * Class Date
+ *
+ * @package AdamWathan\Form\Elements
+ */
 class Date extends Text
 {
+    /**
+     * @var array
+     */
     protected $attributes = [
         'type' => 'date',
     ];
 
-    public function value($value)
-    {
-        if ($value instanceof \DateTime) {
-            $value = $value->format('Y-m-d');
-        }
 
-        return parent::value($value);
-    }
-
+    /**
+     * @inheritdoc
+     */
     public function defaultValue($value)
     {
-        if (! $this->hasValue()) {
+        if (false === $this->hasValue()) {
             if ($value instanceof \DateTime) {
                 $value = $value->format('Y-m-d');
             }
@@ -27,5 +30,18 @@ class Date extends Text
         }
 
         return $this;
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function value($value)
+    {
+        if ($value instanceof \DateTime) {
+            $value = $value->format('Y-m-d');
+        }
+
+        return parent::value($value);
     }
 }

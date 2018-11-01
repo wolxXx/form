@@ -4,8 +4,16 @@ namespace AdamWathan\Form\OldInput;
 
 use Illuminate\Session\Store as Session;
 
+/**
+ * Class IlluminateOldInputProvider
+ *
+ * @package AdamWathan\Form\OldInput
+ */
 class IlluminateOldInputProvider implements OldInputInterface
 {
+    /**
+     * @var \Illuminate\Session\Store
+     */
     private $session;
 
     public function __construct(Session $session)

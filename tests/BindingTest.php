@@ -4,6 +4,10 @@ use AdamWathan\Form\FormBuilder;
 
 class BindingTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @var FormBuilder
+     */
+    protected $form;
     public function setUp()
     {
         $this->form = new FormBuilder;
