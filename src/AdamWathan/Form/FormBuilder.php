@@ -62,6 +62,15 @@ class FormBuilder
 
 
     /**
+     * @return \AdamWathan\Form\OldInput\OldInputInterface
+     */
+    public function getOldInputProvider()
+    {
+        return $this->oldInput;
+    }
+
+
+    /**
      * @param \AdamWathan\Form\ErrorStore\ErrorStoreInterface $errorStore
      *
      * @return $this
@@ -71,6 +80,15 @@ class FormBuilder
         $this->errorStore = $errorStore;
 
         return $this;
+    }
+
+
+    /**
+     * @return \AdamWathan\Form\ErrorStore\ErrorStoreInterface
+     */
+    public function getErrorStore()
+    {
+        return $this->errorStore;
     }
 
 
@@ -308,7 +326,7 @@ class FormBuilder
     public function radio($name, $value = null)
     {
         return (new RadioButton($name, $value))
-        ->setOldValue($this->getValueFor($name));
+            ->setOldValue($this->getValueFor($name));
     }
 
 
