@@ -169,6 +169,22 @@ class FormBuilder
     /**
      * @param string $name
      *
+     * @return \AdamWathan\Form\Elements\Range
+     */
+    public function range($name)
+    {
+        $text = new \AdamWathan\Form\Elements\Range($name);
+        if (!is_null($value = $this->getValueFor($name))) {
+            $text->value($value);
+        }
+
+        return $text;
+    }
+
+
+    /**
+     * @param string $name
+     *
      * @return mixed | null
      */
     public function getValueFor($name)
