@@ -280,6 +280,22 @@ class FormBuilder
     /**
      * @param string $name
      *
+     * @return \AdamWathan\Form\Elements\Time
+     */
+    public function time($name)
+    {
+        $date = new \AdamWathan\Form\Elements\Time($name);
+        if (!is_null($value = $this->getValueFor($name))) {
+            $date->value($value);
+        }
+
+        return $date;
+    }
+
+
+    /**
+     * @param string $name
+     *
      * @return \AdamWathan\Form\Elements\Email
      */
     public function email($name)
